@@ -6,7 +6,7 @@ import mysql.connector
 
 #mysql = MySQL()
 app = Flask(__name__)
-conn = mysql.connector.connect(host="localhost",user="root",passwd="Ganjahman92", database = "BucketList")
+conn = mysql.connector.connect(host="localhost",user="root",passwd="pass", database = "BucketList")
 cursor = conn.cursor()
 # MySQL configurations
 #app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -27,7 +27,7 @@ def Home():
 
 @app.route('/showSignUp')
 def showSignUp():
-    return render_template('home.html')
+    return render_template('signup.html')
 
 @app.route('/showLogging')
 def showLogging():
