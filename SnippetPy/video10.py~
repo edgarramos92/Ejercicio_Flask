@@ -1,0 +1,8 @@
+#Snippet Codes for Python
+#Video 10
+
+from datetime import datetime 
+
+hoy = datetime.now()
+print 'Hoy es el día ',hoy.strftime('%A')
+

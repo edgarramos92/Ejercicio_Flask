@@ -1,0 +1,7 @@
+#Snippet Codes for Python
+#Video 8
+
+dir(__builtins__)
+dir(__doc__)
+dir(__name__)
+dir(__package__)

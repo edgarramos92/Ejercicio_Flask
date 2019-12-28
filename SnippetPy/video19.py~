@@ -1,0 +1,8 @@
+#Snippet Codes for Python
+#Video 19: Random
+
+import numpy as np
+
+a = np.random.uniform(1,10,1)
+
+
