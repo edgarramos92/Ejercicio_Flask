@@ -1,0 +1,97 @@
+
+<html lang="en">
+  <head>
+    <title>Bienvenido</title>
+
+   
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+   
+
+   
+  </head>
+
+  <body>
+
+
+
+  
+  
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Inicio</a></li>
+            <li role="presentation"><a href="/showLogging">Iniciar sesion</a></li>
+
+            <li role="presentation"><a href="/showSignUp">Registrate</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Bienvenido a IoTSol </h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Prueba nuestros servicios</h1>
+        <p class="lead"></p>
+        <p><a class="btn btn-lg btn-success" href="/showSignUp" role="button">Comenzar experiencia!</a></p>
+      </div>
+  
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Misión</h4>
+          <p>Poner la tecnología al alcance de todas las empresas sin importar lo grande que estas sean. Desarrollo de ideas para eficientar procesos de nuestros clientes. Aprovechar al máximo la era movil aplicando el uso de este a la vida cotidiana (IoT). </p>
+
+          <h4>Servicios:</h4>
+          <p>Somos una empresa jóven que se quiere comer al mundo en un solo bocado, por ello contamos con varios servicios, destacando la instalación y mantemiento de equipo de seguridad, puntos de venta y computo. También desarrollamos programas de calidad a bajo costo a petición de distintos clientes. Próximamente comenzamos con desarrollo Wweb y Android OS.   <li role="presentation"><a href="serv1">Servicios</a></li>
+	  <li role="presentation"><a href="serv2">Desarrollo</a></li>
+	  <li role="presentation"><a href="serv3">Web/Android OS</a></li>
+
+</p>
+	  <a name="CONTACT">
+          <h4>Contactanos</h4></a>
+          <p>Somos dos excompañeros del posgrado con visión y con ganas de solucionar los problemas con ayuda de la tecnología. Raziel Campos () & Edgar Ramos ().  </p>
+
+	<div>
+	<form class="form-horizontal">
+	  <div class="form-group">
+	     <label for="inputname" class="sr-only">Nombre</label>
+	     <div class="col-sm-10">
+                <input type="name" name="inputname" id="inputname" class="form-control" placeholder="Nombre" style="width: 200px;">
+	     </div>
+	  </div>
+          <div class="form-group">
+	     <label for="inputemail" class="sr-only">Correo Electrónico</label>
+	     <div class="col-sm-10">
+                <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email" style="width: 200px;">
+	     </div>
+	  </div>
+          <div class="form-group">
+	     <label for="inputmessage" class="sr-only">Mensaje</label>
+	     <div class="col-sm-10">
+  	        <textarea name="mensaje"  placeholder = "Mensaje" rows="10" cols="40"></textarea>
+                
+	     </div>
+	  </div>
+	  <div class="form-group">        
+             <div class="col-sm-offset-2 col-sm-10">
+ 	        <button id="btnsend" class="btn btn-lg btn-primary btn-block" type="button"> Enviar</button>       
+	     </div>
+	  </div>
+
+	</form>
+ 	</div>
+        </div>
+      </div>
+      
+         
+      	 
+      <footer class="footer">
+        <p>&copy; Company 2019</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+

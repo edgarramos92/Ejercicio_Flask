@@ -1,0 +1,68 @@
+
+<html lang="en">
+  <head>
+    <title>Próximamente</title>
+
+   
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+   
+
+   
+  </head>
+
+  <body>
+
+
+
+  
+  
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Inicio</a></li>
+            <li role="presentation"><a href="#">Iniciar sesion</a></li>
+
+            <li role="presentation"><a href="showSignUp">Registrate</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Bienvenido a IoTSol </h3>
+      </div>
+
+      <div class="jumbotron">
+        <h3>Desarrollo Web & Android OS</h3>
+        <p class="lead"></p>
+        <p><a class="btn btn-lg btn-success" href="/showSignUp" role="button">Comenzar experiencia!</a></p>
+      </div>
+  
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Desarrollo Web</h4>
+          <p>La clave en el crecimiento de IoTSol, radica en el desarrollo web. Para mayor información pregunta por nuestro servicio!.   </p>   
+          <a src="https://i.ibb.co/bKm1kBF/android.jpg"><img src="https://i.ibb.co/bKm1kBF/android.jpg" alt="android" width="400" height="250"></a>
+
+          
+         
+	  
+          <li role="presentation"><a href="serv1">Servicios</a></li>
+	  <li role="presentation"><a href="serv2">Desarrollo</a></li>
+	  <li role="presentation"><a href="serv3">Web/Android OS</a></li>
+	  <li role="presentation"><a href="/#CONTACT">Contactanos</a></li>
+</p>
+
+        </div>
+      </div>
+      
+         
+      	 
+      <footer class="footer">
+        <p>&copy; Company 2019</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+

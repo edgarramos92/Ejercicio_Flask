@@ -1,0 +1,57 @@
+
+<html lang="en">
+  <head>
+    <title>Aviso de Privacidad</title>
+
+   
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+   
+
+   
+  </head>
+
+  <body>
+
+
+
+  
+  
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Inicio</a></li>
+            <li role="presentation"><a href="#">Iniciar sesion</a></li>
+
+            <li role="presentation"><a href="showSignUp">Registrate</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Bienvenido a IoTSol </h3>
+      </div>
+
+      <div class="jumbotron">
+        <h3>Aviso de Privacidads</h3>
+        <p class="lead"></p>
+        <p><a class="btn btn-lg btn-success" href="/showSignUp" role="button">Comenzar experiencia!</a></p>
+      </div>
+  
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Aviso de Privacidad</h4>
+          <p>Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad Aviso de Privacidad .
+        </div>
+      </div>
+      
+         
+      	 
+      <footer class="footer">
+        <p>&copy; Company 2019</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+

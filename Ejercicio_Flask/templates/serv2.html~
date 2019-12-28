@@ -1,0 +1,71 @@
+
+<html lang="en">
+  <head>
+    <title>Desarrollo</title>
+
+   
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+   
+
+   
+  </head>
+
+  <body>
+
+
+
+  
+  
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Inicio</a></li>
+            <li role="presentation"><a href="#">Iniciar sesion</a></li>
+
+            <li role="presentation"><a href="showSignUp">Registrate</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Bienvenido a IoTSol </h3>
+      </div>
+
+      <div class="jumbotron">
+        <h3>Desarrollo de Software/Electrónica</h3>
+        <p class="lead"></p>
+        <p><a class="btn btn-lg btn-success" href="/showSignUp" role="button">Comenzar experiencia!</a></p>
+      </div>
+  
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Desarrollo de Software</h4>
+          <p>Planeación, construcción e implementación de algoritmos para la resolución de problemas específicos de nuestros clientes es una de nuestras dos pasiones. IoTSol utiliza lenguajes como &copy; Python y &copy; JavaScript para satisfacer las necesidades de nuestros clientes.  </p>   
+          <img src="https://i.ibb.co/MnHRY6Y/software2.png" alt="software1" width="500" height="250">
+
+	  <img src="https://i.ibb.co/bWhZnsK/software1.png" alt="software1" width="500" height="250">
+	  
+          <h4>Electrónica</h4>
+          <p>La ingeniería es la otra pasión que nos impulsar a mejorar. Parte del trabajo que se realiza en IoTSol, es la creación de soluciones a la medida de cada cliente, con ayuda de herramientas como &copy; Arduino   </p>
+	  <img src="https://i.ibb.co/YZXbXdC/arduino.jpg" alt="escaner_barcode" width="200" height="120">
+
+          <li role="presentation"><a href="serv1">Servicios</a></li>
+	  <li role="presentation"><a href="serv2">Desarrollo</a></li>
+	  <li role="presentation"><a href="serv3">Web/Android OS</a></li>
+	  <li role="presentation"><a href="index.html#CONTACT">Contactanos</a></li>
+</p>
+
+        </div>
+      </div>
+      
+         
+      	 
+      <footer class="footer">
+        <p>&copy; Company 2019</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+
