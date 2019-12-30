@@ -6,7 +6,7 @@ import mysql.connector
 
 #mysql = MySQL()
 app = Flask(__name__)
-conn = mysql.connector.connect(host="localhost",user="root",passwd="pass", database = "BucketList")
+conn = mysql.connector.connect(host="localhost",user="root",passwd="Ganjahman92", database = "BucketList")
 cursor = conn.cursor()
 # MySQL configurations
 #app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -52,6 +52,21 @@ def Term():
 @app.route('/Priv')
 def Priv():
     return render_template('Priv.html')
+
+@app.route('/Contact',methods=['POST','GET'])
+def Contact():
+    _name = request.form['inputname']
+    _email = request.form['inputmail']
+    _text = request.form['inputtext']
+    print(_name, 'si funiono !!!!!')
+
+    sql = "INSERT INTO contact (user_name,user_email,user_comment) VALUES (%s, %s, %s)"
+    val = (_name, _email, _text)
+    cursor.execute(sql, val)
+#       print(cursor.rowcount, " bla bla ")
+    conn.commit()
+    return jsonify({'message':'Usuario creado correctamente!'})
+    
 
 @app.route('/Logging',methods=['POST','GET'])
 def Logging():
@@ -101,4 +116,4 @@ def signUp():
    
 
 if __name__ == "__main__":
-    app.run(debug=True, port = 5050)
+    app.run(debug=True, port = 5055)

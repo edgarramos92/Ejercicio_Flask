@@ -22,14 +22,14 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/showSignUp">Salir</a></li>
+            <li role="presentation"><a href="/">Salir</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">IoTSol </h3>
+        <h3 class="text-muted">Bienvenido a IoTSol </h3>
       </div>
 
       <div class="jumbotron">
-        <h1>Bienvenido a IoTSol</h1>
+        <h1>IoTSol</h1>
         <p class="lead"></p>
        
       </div>

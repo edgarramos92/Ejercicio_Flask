@@ -2,7 +2,7 @@ $(function(){
 	$('#btnsend').click(function(){
 		
 		$.ajax({
-			url: '/Con',
+			url: '/Contact',
 			data: $('form').serialize(),
 			type: 'POST',
 			

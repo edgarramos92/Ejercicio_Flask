@@ -9,8 +9,14 @@
     <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/css/signup.css" rel="stylesheet">
     <script src="../static/js/jQuery.js"></script>
-    <script src="../static/js/signUp.js"></script>
-
+    <script src="../static/js/logging.js"></script>
+    <script type="text/javascript">  
+    function printvalue(){  
+    var nombre=document.getElementById("inputemail").value; 
+<!--    var nombre=document.getElementById("inputemail").value; -->
+    alert("Bienvenido "+nombre);
+    location.replace("http://localhost:5055/")}  
+    </script>  
    
   </head>
 
@@ -22,7 +28,7 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation" ><a href="/">Inicio</a></li>
             <li role="presentation"><a href="#">Iniciar sesion</a></li>
-            <li role="presentation" class="active"><a href="//showSignUp">Registrate</a></li>
+            <li role="presentation" class="active"><a href="/showSignUp">Registrate</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Bienvenido a la prueba</h3>
@@ -30,13 +36,13 @@
 
       <div class="jumbotron">
         <h1>App de Prueba</h1>
-        <form class="form-signin">
+        <form name = "form1" class="form-signin">
            <label for="inputemail" class="sr-only">Correo Electrónico</label>
-           <input type="email" name="inputemail" id="inputemail" class="form-control" placeholder="Email" required autofocus>
+           <input type="email" name="inputemail" id="inputemail" class="form-control" placeholder="Email" required autofocus/>
 
            <label for="inputpassword" class="sr-only">Contraseña</label>
-           <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Contraseña" required>
-           <button id="btnLogging" class="btn btn-lg btn-primary btn-block" type="button">Iniciar Sesión</button>
+           <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Contraseña" required/>
+           <button id="btnLogging" class="btn btn-lg btn-primary btn-block" type="button" onclick = "printvalue()" value="print name" >Iniciar Sesión</button>
 	   
          </form>
       </div>
