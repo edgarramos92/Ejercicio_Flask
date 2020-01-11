@@ -3,7 +3,8 @@
 
 import json
 
-a = '{"nombre" :"Edgar Ramos", "edad" : 27, "ciudad_origen" : "Guadalajara"}'
+a = '{"nombre" :"Edgar Ramos", "edad" : 27, "ciudad" : "Guadalajara"}'
 b = json.loads(a)
-print b["nombre"]
+
+print (b["nombre"],b["edad"],b["ciudad"]) 
 

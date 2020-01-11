@@ -1,12 +1,13 @@
 #Snippet Codes for Python
-#Video 17: Fibonacci Sequence
+#Video 17: Logging
 
 import logging
 
-logging.basicConfig(level = logging.DEBUG)
+format_log = "%(levelname)s %(asctime)s - %(message)s"
+logging.basicConfig(filename = "prueba.log", level = logging.DEBUG, format = format_log, filemode = "w")
 log = logging.getLogger()
 log.info(' Log mesagge')
-print log.level
+print (log.level)
 
 
 

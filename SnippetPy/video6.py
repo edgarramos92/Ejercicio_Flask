@@ -1,5 +1,5 @@
 #Snippet Codes for Python
-#Video 6
+#Video 6: Arithmetic in Python 2
 
 a = 2
 b = 5/2.

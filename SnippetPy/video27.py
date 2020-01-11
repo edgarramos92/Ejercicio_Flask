@@ -4,7 +4,7 @@ import numpy as np
 def mapping(n):
 	return n * n
 maped = map(mapping,range(10))
-print list(maped)
+print (list(maped))
 #-----------------------------
-print list(filter(lambda a : a > np.mean(list(maped)), list(maped)))
+print (list(filter(lambda a : a > np.mean(list(maped)), list(maped))))
 

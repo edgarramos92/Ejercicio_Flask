@@ -4,8 +4,8 @@
     <title>Python Flask Bucket List App</title>
 
 
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"  crossorigin="anonymous">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" >
     <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/css/signup.css" rel="stylesheet">
     <script src="../static/js/jQuery.js"></script>
@@ -14,8 +14,7 @@
     function printvalue(){  
     var nombre=document.getElementById("inputemail").value; 
 <!--    var nombre=document.getElementById("inputemail").value; -->
-    alert("Bienvenido "+nombre);
-    location.replace("http://localhost:5055/Home")}  
+    alert("Bienvenido "+nombre);} 
     </script>  
    
   </head>
@@ -27,22 +26,22 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" ><a href="/">Inicio</a></li>
-            <li role="presentation"><a href="#">Iniciar sesion</a></li>
-            <li role="presentation" class="active"><a href="/showSignUp">Registrate</a></li>
+            <li role="presentation" class="active"><a href="#">Iniciar sesion</a></li>
+            <li role="presentation" ><a href="/showSignUp">Registrate</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Bienvenido a la prueba</h3>
+        <h3 class="text-muted">Python Flask App</h3>
       </div>
 
       <div class="jumbotron">
         <h1>App de Prueba</h1>
-        <form name = "form1" class="form-signin">
+        <form action="/Logging" method="post">
            <label for="inputemail" class="sr-only">Correo Electrónico</label>
-           <input type="email" name="inputemail" id="inputemail" class="form-control" placeholder="Email" required autofocus/>
+           <input type="email" name="inputemail" id="inputemail" class="form-control" placeholder="Email" required autofocus>
 
            <label for="inputpassword" class="sr-only">Contraseña</label>
-           <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Contraseña" required/>
-           <button id="btnLogging" class="btn btn-lg btn-primary btn-block" type="button" onclick = "printvalue()" value="print name" >Iniciar Sesión</button>
+           <input type="password" name="inputpassword" id="inputpassword" class="form-control" placeholder="Contraseña" require/>
+           <button  class="btn btn-lg btn-primary btn-block" type="submit"  >Iniciar Sesión</button>
 	   
          </form>
       </div>

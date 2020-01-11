@@ -3,6 +3,7 @@
 
 with open ("ejemplo20.csv", "r") as myfile:
 	ejem = myfile.readlines()
-print ejem
+
 ejem = [x.strip() for x in ejem] 
-print ejem
+print (ejem)
+

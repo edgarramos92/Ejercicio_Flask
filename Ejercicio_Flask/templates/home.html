@@ -3,43 +3,411 @@
   <head>
     <title>Bienvenido</title>
 
-   
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<!-- En esta sección se inician los .js y .css que se utilizan en la web -->
+    <script  src="../static/js/jQuery.js"></script>
 
-    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" crossorigin="anonymous" ></script>
 
+    <script type=”text/javascript” src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script type=”text/javascript” src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" >
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" >
+    
+    <script type="text/javascript" src="../static/js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.fileupload.js"></script> 
+    <script type="text/javascript" src="../static/js/jquery.fileupload-process.js"></script> 
+    <script type="text/javascript" src="../static/js/jquery.fileupload-ui.js"></script>
+
+
+
+<!-- #################################################################-->
+<!-- Aquí están definidos los códigos js de mi código-->
+
+<!-- esta función de js toma de la consola del navegador la información a desplegar en la página. La información se muestra en una lista dinamica que se crea con un template $('#listTemplate').tmpl(wishObj).appendTo('#ulist'); donde $('#listTemplate') es el template a usar y '#ulist' es el lugar donde se van a colocar los elementos de la lista    -->
+<script>
+	$(function(){
+		$.ajax({
+			url : '/getwish',
+			type : 'POST',
+			data: {offset : 0},
+			success: function(res){
+				// Parse the JSON response
+ 				console.log(res);
+                		var wishObj = JSON.parse(res);
+                 		var total = wishObj[1]['total'];
+				var items = wishObj[1]['item'];
+				var pageCount = total/items;
+				var pageRem = total%items;
+				if(pageRem !=0 ){
+				    pageCount = Math.floor(pageCount)+1;}
+                		// Append to the template
+                		$('#listTemplate').tmpl(wishObj[0]).appendTo('#ulist');
+				var prevLink = $('<li/>').append($('<a/>').attr({'href': '#'}, {'aria-label': 'Anterior'}).append($('<span/>').attr('aria-hidden', 'true').html('&laquo;')));
+				$('.pagination').append(prevLink);
+				var offset = 0;
+				for (var i = 0; i < pageCount; i++) {
+    					var aPage = $('<a/>').attr('href', '#').text(i + 1);
+					console.log({'offset 1':offset});
+					$(aPage).click(function(offset) {
+						return function(){getwish(offset);}}
+					(offset));
+					var page = $('<li/>').append(aPage);
+    					$('.pagination').append(page);
+					offset = offset + items}
+				console.log({'offset 1':offset});
+				var prevLink = $('<li/>').append($('<a/>').attr({'href': '#'}, {'aria-label': 'Siguiente'}).append($('<span/>').attr('aria-hidden', 'true').html('&raquo;')));
+				$('.pagination').append(prevLink);
+				
+ 
+ 
+            		},
+           		error: function(error) {console.log(error);
+            		}
+        });
+    });
+    </script>   
+
+<!--  esta función es llamada para actualizar la lista dinamica cuando se haga una modificación sin que se tenga que refrescar la pagina. Es llamada por  Delete() y update() ya que ambos modifican la lista.  -->
+
+    <script>
+	function getwish(off){
+		console.log(off);
+		$.ajax({
+			url : '/getwish',
+			type : 'POST',
+			data: {offset : off},
+			success: function(res){
+				console.log(res);
+				// Parse the JSON response
+                		var wishObj = JSON.parse(res);
+				$('#ulist').empty();
+				var total = wishObj[1]['total'];
+				var items = wishObj[1]['item'];
+				var pageCount = total/items;
+				var pageRem = total%items;
+				if(pageRem !=0 ){
+				    pageCount = Math.floor(pageCount)+1;}
+                 		
+                		// Append to the template
+                		$('#listTemplate').tmpl(wishObj[0]).appendTo('#ulist');
+				
+
+
+ 
+            		},
+           		error: function(error) {console.log(error);
+            		}
+        });
+    }
+    </script>
+
+<!--  Esta funcion permite editar cada uno de los elementos de la lista dinámica al hacer click en el "editar". Despliega una ventana (modal) con los campos de titulo y descripcion con los datos de la DB del usuario. Utiliza los id del form '#editTitle' y '#editDescription' para mostrar los datos guardados en la DB.                        -->
+
+
+    <script>
+        function Edit(elm) {
+		localStorage.setItem('editId',$(elm).attr('data-id'));
+        	$.ajax({
+            		url: '/getwishbyID',
+            		data: {id: $(elm).attr('data-id')},
+        		type: 'POST',
+        		success: function(res) {
+				console.log(res);
+				// Parse the received JSON string
+				var data = JSON.parse(res);
+ 
+				//Populate the Pop up
+				$('#editTitle').val(data[0
+]['Titulo']);
+				$('#editDescription').val(data[0]['Descripcion']);
+				$('#imgUpload').attr('src', data[0]['ruta']);
    
+    				if (data[0]['Privacidad'] == "1") {
+			        	$('#chkPrivate').attr('checked', 'checked');}
+   
+				if (data[0]['Completado'] == "1") {
+				        $('#chkDone').attr('checked', 'checked');}
+   
+    
+ 
+				// Trigger the Pop Up
+				$('#editModal').modal();},
+        		error: function(error) {console.log(error);}
+    			});
+	}
+    </script>
+
+<!--  Despues e que el usuario edite su deseo, en el modal abierto, puede guardarlo, esto se realiza en esta función, la que manda lo introducido por el usuario al app.py para sobre escribirlo en la DB con mysql                      -->
+
+<script>
+    function update() {
+    $.ajax({
+            url: '/updatewish',
+            data: {
+            tit: $('#editTitle').val(),
+            desc: $('#editDescription').val(),
+            id: localStorage.getItem('editId'),filePath:$('#imgUpload').attr('src'), 'private':$('#chkPrivate').is(':checked')?1:0,'done':$('#chkDone').is(':checked')?1:0, },
+            type: 'POST',
+            success: function(res) {
+		 var data = JSON.parse(res);
+                 $('#editModal').modal();
+                 // Re populate the grid
+	         getwish(data['off']);
+        },
+            error: function(error) {
+                 console.log(error);
+        }
+    });
+}
+</script>
+
+<!--  Esta función sirve ara abrir una ventana (modal ('#deleteModal')) de confirmación para eliminar un deseo. El usuario puede cancelar o aceptar -->
+
+<script>
+function ConfirmDelete(elem) {
+    localStorage.setItem('deleteId', $(elem).attr('data-id'));
+    $('#deleteModal').modal();
+}
+</script>
+
+<!--  Esta función sirve para eliminar un deseo elegido por el usuario y debería cerrar la ventana (pero no lo hace) -->
+
+<script>
+function Delete() {
+    $.ajax({
+        url: '/delwish',
+        data: {
+            id: localStorage.getItem('deleteId')
+        },
+        type: 'POST',
+        success: function(res) {
+	    console.log(res);
+            var result = JSON.parse(res);
+            if (result['status'] == 'OK') {
+                $('#deleteModal').modal();
+                getwish(result['off']);
+            } else {
+                alert(result.status);
+            }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+</script>
+
+<!--  Esta función sirve para crear el template de la lista dinámica-->
+
+    <script id="listTemplate" type="text/x-jQuery-tmpl">
+    <li class="list-group-item">
+        <div class="checkbox">
+            <label>
+            ${Titulo} 
+            </label>
+        </div>
+        <div class="pull-right action-buttons">
+	    <label> ${Fecha} </label>
+            <a data-id=${Id} onclick="Edit(this)"><span class="glyphicon glyphicon-pencil "></span></a>
+            <a data-id=${Id} onclick="ConfirmDelete(this)"><span class="glyphicon glyphicon-trash "></span></a>
+        </div>
+    </li>
+    </script>
+
+
+<script>
+$(function() {
+    $('#fileupload').fileupload({
+        url: 'upload',
+        dataType: 'json',
+        add: function(e, data) {
+            data.submit();
+        },
+        success: function(response, status) {
+            console.log(response);
+            var filePath = 'static/uploads/' + response.filename;
+            $('#imgUpload').attr('src', filePath);
+            $('#filePath').val(filePath);
+            
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+})
+</script>
+
+
+
+<!--  Un estilo para la lista dinámica-->
+
+    <style>
+      .trash { color:rgb(209, 91, 71); }
+      .panel-body .checkbox { display:inline-block;margin:0px; }
+      .list-group { margin-bottom:0px; }
+      .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+         
+      .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+   </style>
   </head>
 
+
+
+
   <body>
-
-
-
-  
-  
     <div class="container">
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/">Salir</a></li>
+	    <li role="presentation" ><a href="/dash">Dashboard</a></li>
+	    <li role="presentation" class="active" ><a href="/Home" >Principal</a>
+                    </li>
+	    <li role="presentation"><a href="/AddWish">Agregar Deseo!</a></li>
+            <li role="presentation"><a href="/logout">Salir</a></li>
           </ul>
-        </nav>
-        <h3 class="text-muted">Bienvenido a IoTSol </h3>
-      </div>
 
-      <div class="jumbotron">
-        <h1>IoTSol</h1>
-        <p class="lead"></p>
-       
+        </nav>
+        <h3 class="text-muted">Python Flask App  </h3>
       </div>
+      <h1>{{bienvenido}}</h1>
+      <div class="jumbotron">
+	
+      
+
+<!--  En este punto (ul) es donde se pone la lista dinámica -->    
+	
+
+    <div class="row">
+        <div class="col-md-12">
+            
+                <div class="panel-body">
+
+                    <ul id="ulist" class="list-group">
+                        
+ 
+                        
+                    </ul>
+		    <nav>
+  <ul class="pagination">
+    
+  </ul>
+</nav>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+	
+ <!--  En este punto el modal para editar el deseo y el modal para confirmar borrar -->   	
+ 	
+<div class="modal " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                
+                <h4 class="modal-title" id="editModalLabel">Editar deseo</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" >
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Titulo:</label>
+                        <input type="text" class="form-control" id="editTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Descripción:</label>
+                        <textarea class="form-control" id="editDescription"></textarea>
+                    </div>
+<div class="form-group">
+    <label for="txtPost">Photos</label>
+ 
+    <div class="input-group">
+        <span class="input-group-btn">
+                    <span class="btn btn-primary btn-file">
+                        Explorador de archivos&hellip; <input type="file" id="fileupload" name="file" multiple>
+                    </span>
+        </span>
+        <div class="pull-right">
+            <img id="imgUpload" style="width: 140px; height: 140px;" class="img-thumbnail">
+            <input type="hidden" name="filePath" id="filePath"></input>
+        </div>
+    </div>
+ 
+</div>
+ 
+<div class="form-group">
+    <label>Marcar como privado y no será visible para nadie mas.</label>
+    <br/>
+    <input id="chkPrivate" name="private" type="checkbox">Marcar como privado<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+</div>
+ 
+<div class="form-group">
+    <label>¿Lo has logrado?</label>
+    <br/>
+    <input id="chkDone" name="done" type="checkbox"> Marcar como hecho <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#close-modal" rel="modal:close"   type="button" class="btn" data-dismiss="modal" class="close-modal"><span class="glyphicon glyphicon-remove "></span></a>
+                <button  onclick="update()" type="submit" id="btnUpdate" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-saved "></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="text-align:center;">
+        <h4 class="modal-title" style="color:red;" id="deleteModalLabel">Estas por borrar este deseo para siempre!</h4>
+      </div>
+     
+      <div class="modal-footer">
+        <a href="#close-modal" rel="modal:close"   type="button" class="btn" data-dismiss="modal" class="close-modal"><span class="glyphicon glyphicon-remove "></span></a>
+        <button type="button" class="btn btn-primary" onclick="Delete()"><span class="glyphicon glyphicon-ok "></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+       
+      
   
 
-      
-         
+        </div> 
       	 
       <footer class="footer">
-        <p>&copy; Company 2019</p>
+        <p>&copy; Company 2019 </i></p>
       </footer>
 
     </div>

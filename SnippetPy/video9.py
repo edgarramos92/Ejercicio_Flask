@@ -1,5 +1,5 @@
 #Snippet Codes for Python
-#Video 9
+#Video 9: Booleans
 
 x = 1
 y = 3.1416
